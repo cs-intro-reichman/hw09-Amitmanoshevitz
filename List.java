@@ -27,7 +27,7 @@ public class List {
         return first.cp;
     }
 
-    /** GIVE Adds a CharData object with the given character to the beginning of this list. */
+    /*** GIVE Adds a CharData object with the given character to the beginning of this list. */
     public void addFirst(char chr) {
     if(first == null){
        first.cp = new CharData(chr);
