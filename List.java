@@ -29,17 +29,16 @@ public class List {
 
     /*** GIVE Adds a CharData object with the given character to the beginning of this list. */
     public void addFirst(char chr) {
-    if(first == null){
-       first.cp = new CharData(chr);
-       size++;
-    }
-    if(first != null){
-        Node temp = first;
-        first.cp = new CharData(chr);
-        first.next = temp;
+        if (first == null) {
+            first = new Node(new CharData(chr));
+        } else {
+            Node temp = first;
+            first = new Node(new CharData(chr));
+            first.next = temp;
+        }
         size++;
     }
-    }
+    
     
     /** GIVE Textual representation of this list. */
     public String toString() {
