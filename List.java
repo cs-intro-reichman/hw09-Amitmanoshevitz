@@ -44,11 +44,13 @@ public class List {
     /** GIVE Textual representation of this list. */
     public String toString() {
        Boolean i = true;
-        if(first == null){   
+       String Sum = "";
+        
+       if(first == null){   
         System.out.println("this list is empty");}
+       
         else{
             Node temp = first;
-            String Sum = "";
             while(i){
                if (temp.next != null) {
                 Sum = Sum + temp.cp.toString() + "->";
@@ -59,9 +61,8 @@ public class List {
                 i = false;
                }
             }
-            return Sum;
         }
-             
+            return Sum;
     }
 
     /** Returns the index of the first CharData object in this list
