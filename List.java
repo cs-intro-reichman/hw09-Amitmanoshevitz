@@ -42,26 +42,16 @@ public class List {
     
     /** GIVE Textual representation of this list. */
     public String toString() {
-       Boolean i = true;
-       String Sum = "";
-        
-       if(first == null){   
-        System.out.println("this list is empty");}
-       
-        else{
-            Node temp = first;
-            while(i){
-               if (temp.next != null) {
-                Sum = Sum + temp.cp.toString() + "->";
-                temp = temp.next;
-               }
-               else{
-                Sum = Sum + temp.cp.toString();
-                i = false;
-               }
+        StringBuilder result = new StringBuilder();
+        Node temp = first;
+        while (temp != null) {
+            result.append(temp.cp.toString());
+            if (temp.next != null) {
+                result.append("->");
             }
+            temp = temp.next;
         }
-            return Sum;
+        return result.toString();
     }
 
     /** Returns the index of the first CharData object in this list
