@@ -22,6 +22,8 @@ public class List {
  	      return size;
     }
 
+
+    
     /** Returns the first element in the list */
     public CharData getFirst() {
         return first.cp;
