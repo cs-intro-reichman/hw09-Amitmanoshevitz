@@ -42,35 +42,35 @@ public class List {
     
     /** GIVE Textual representation of this list. */
     public String toString() {
-        StringBuilder result = new StringBuilder();
+        if (size == 0) {
+            return "()";
+        }
         Node temp = first;
+        StringBuilder stringB = new StringBuilder("(");
         while (temp != null) {
-            result.append(temp.cp.toString());
-            if (temp.next != null) {
-                result.append("->");
-            }
+            stringB.append(temp.cp).append(">");
             temp = temp.next;
         }
-        return result.toString();
+        String re = stringB.substring(0, stringB.length() - 1) + ")";
+        return re;
     }
 
     /** Returns the index of the first CharData object in this list
      *  that has the same chr value as the given char,
      *  or -1 if there is no such object in this list. */
     public int indexOf(char chr) {
-        if (first == null) {
-            return -1;}
-
         Node temp = first;
         int counter = 0;
-        while (counter <= size) {
-        if (temp.equals(chr)) {
-            return counter;
+        while (temp != null) {
+            if (temp.equals(chr)) {
+                return counter;
+            }
+            temp = temp.next;
+            counter++;
         }
-        temp = temp.next;
-        counter ++; 
-    } return -1;
-}
+        return -1;
+    }
+
 
     /** If the given character exists in one of the CharData objects in this list,
      *  increments its counter. Otherwise, adds a new CharData object with the
