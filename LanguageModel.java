@@ -113,26 +113,19 @@ public class LanguageModel {
 	public String generate(String initialText, int textLength) {
         StringBuilder genText = new StringBuilder(initialText);
         while (genText.length() < textLength) {
-            String currentWindow = genText.substring(Math.max(0, genText.length() - windowLength));
-            if (!CharDataMap.containsKey(currentWindow)) {
+            String curWindow = genText.substring(Math.max(0, genText.length() - windowLength));
+            if (!CharDataMap.containsKey(curWindow)) {
                 break;
             }
-            List probs = CharDataMap.get(currentWindow);
-            char nChar = getRandomChar(probs); 
-            genText.append(nChar); 
-    
-            if (genText.length() >= textLength) {
-                break;
-            }
+            char nChar = getRandomChar(CharDataMap.get(curWindow));
+            genText.append(nChar);
         }
     
         if (genText.length() > textLength) {
             return genText.substring(0, textLength);
         } else {
-            String re = genText.toString();
-            return re;
+            return genText.toString();
         }
-
     }
 
     /** Returns a string representing the map of this language model. */
