@@ -48,7 +48,7 @@ public class List {
         Node temp = first;
         StringBuilder stringB = new StringBuilder("(");
         while (temp != null) {
-            stringB.append(temp.cp).append(">");
+            stringB.append(temp.cp + " ");
             temp = temp.next;
         }
         String re = stringB.substring(0, stringB.length() - 1) + ")";
@@ -62,7 +62,7 @@ public class List {
         Node temp = first;
         int counter = 0;
         while (temp != null) {
-            if (temp.equals(chr)) {
+            if (temp.cp.equals(chr)) {
                 return counter;
             }
             temp = temp.next;
