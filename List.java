@@ -76,24 +76,21 @@ public class List {
      *  increments its counter. Otherwise, adds a new CharData object with the
      *  given chr to the beginning of this list. */
     public void update(char chr) {
-        Boolean i = true;
-        Boolean j = true;
         Node temp = first;
-
-        while (i) {
-        if (temp.equals(chr)) {
-         temp.cp.count++; 
-        j = false;  
-        }
-        temp = temp.next;
-        if(temp == null){
-            i = false;
-        }
-    } 
-        if (j) {
+        boolean i = false;
+    
+        while (temp != null) {
+            if (temp.cp.chr == chr) {
+                temp.cp.count++;
+                i = true;
+                break;
+            }
+            temp = temp.next;}
+    
+        if (!i) {
             addFirst(chr);
         }
-}
+    }
 
     /** GIVE If the given character exists in one of the CharData objects
      *  in this list, removes this CharData object from the list and returns
