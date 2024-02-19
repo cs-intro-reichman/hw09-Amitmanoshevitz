@@ -66,7 +66,7 @@ public class LanguageModel {
 	// characters in the given list. */
 	public void calculateProbabilities(List probs) 
     {				
-	    int cpCounter = 0;
+	    double cpCounter = 0;
         double AllCp = 0.0;
         int i = 0;
         while(i<probs.getSize()) 
